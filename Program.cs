@@ -6,7 +6,8 @@ namespace hilo
     {
         static void Main(string[] args)
         {
-
+            GameLoop Game = new GameLoop();
+            Game.Play();
         }
     }
 }

@@ -1,6 +1,6 @@
 using System;
 
-namespace hiloSpecification
+namespace hilo
 {
     class Deck
     {
@@ -13,7 +13,8 @@ namespace hiloSpecification
             cardValue = DrawCard();
         }
 
-        public int DrawCard() {
+        public int DrawCard() 
+        {
             Random random = Random();
         
             bool validCard = false; 
