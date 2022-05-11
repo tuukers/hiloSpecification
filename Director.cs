@@ -10,6 +10,9 @@ namespace hilo
 
         public int currentCard;
 
+        private bool First;
+        public int Guess;
+
         // Constructor
         public GameLoop()
         {
@@ -17,6 +20,20 @@ namespace hilo
             this.isPlaying=true;
         }
         
+        public void Play()
+        {
+            First= true;            
+            while this.isPlaying
+            {
+                if First
+                {
+                    //draw card
+                    First=false;
+                }
+                Guess=
+            }
+        }
+
         //gameloop
 
         //drawCard
