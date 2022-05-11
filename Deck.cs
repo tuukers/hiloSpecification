@@ -6,6 +6,7 @@ namespace hilo
     {
         // Attributes
         public int cardValue;
+        public int card;
 
         // Constructor
         public Deck()
@@ -15,17 +16,17 @@ namespace hilo
 
         public int DrawCard() 
         {
-            Random random = Random();
+            Random random = new Random();
         
             bool validCard = false; 
             while (validCard == false) {
                 card = random.Next(1,14); 
                 
                 if (card != cardValue) {
-                    return card;
                     validCard = true;
-                }
+                } 
             }
+            return card;
         }
     }   
 }
