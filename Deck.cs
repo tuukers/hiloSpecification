@@ -1,23 +1,30 @@
 using System;
 
-namespace hilo
+namespace hiloSpecification
 {
     class Deck
     {
         // Attributes
-        public int card;
-        public int lastCard;
+        public int cardValue;
 
         // Constructor
-        public Deck(int lastCard)
+        public Deck()
         {
-            this.card = 1;
-            this.lastCard = lastCard;
+            cardValue = DrawCard();
         }
 
-        // drawCard
-
-        // returnCard
-
-    }
+        public int DrawCard() {
+            Random random = Random();
+        
+            bool validCard = false; 
+            while (validCard == false) {
+                card = random.Next(1,14); 
+                
+                if (card != cardValue) {
+                    return card;
+                    validCard = true;
+                }
+            }
+        }
+    }   
 }
