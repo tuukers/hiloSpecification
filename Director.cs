@@ -18,15 +18,16 @@ namespace hilo
         // Constructor
         public GameLoop()
         {
-            this.isPlaying=true;
+
         }
         
         public void Play()
         {
-            
-            First= true;
 
-            while (this.isPlaying)
+            First= true;
+            isPlaying=true;
+
+            while (isPlaying)
             {
                 score = 300;
                 if (First)

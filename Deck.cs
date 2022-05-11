@@ -6,6 +6,7 @@ namespace hilo
     {
         // Attributes
         public int cardValue;
+        public int card;
 
         // Constructor
         public Deck()
