@@ -16,3 +16,4 @@
 
 # Team Members
   Ryan Madsen - mad19002@byui.edu
+  Ethan Graham - gra20072@byui.edu
