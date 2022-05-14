@@ -5,7 +5,7 @@ namespace hilo
     class Director
     {
         // Attributes
-        private int score = 300;
+        public int score = 300;
         public bool isPlaying;
         public int currentCard;
         public string guess;
@@ -16,7 +16,7 @@ namespace hilo
         // Constructor
         public Director()
         {
-
+            this.isPlaying = true;
         }
         
         public void Play()
