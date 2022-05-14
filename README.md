@@ -15,5 +15,6 @@
   pertaining to the deck of 13 cards and has the method DrawCard() which draws a random card each turn. 
 
 # Team Members
-  Ryan Madsen - mad19002@byui.edu
-  Ethan Graham - gra20072@byui.edu
+  Ryan Madsen - mad19002@byui.edu<br>
+  Ethan Graham - gra20072@byui.edu<br>
+  Colby Hale - hal19029@byui.edu
