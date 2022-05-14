@@ -2,63 +2,123 @@ using System;
 
 namespace hilo
 {
-    class GameLoop
+    class Director
     {
         // Attributes
-        private int score;
-        private bool isPlaying;
+        private int score = 300;
+        public bool isPlaying;
         public int currentCard;
-        public string Guess;
+        public string guess;
+        public bool correct;
         public int newCard;
-        private string playAgain;
-
+        public string playAgain;
+    
         // Constructor
-        public GameLoop()
+        public Director()
         {
 
         }
         
         public void Play()
         {
-            isPlaying=true;
+            Deck deck = new Deck();
+            currentCard = deck.cardValue;
+            
+            while (isPlaying) {
+                DrawNewCard(deck);
+                DisplayCurrentCard();
+                GetGuess();
+                CheckGuess();
+                UpdateScore();
+                DisplayNextCard();
+                DisplayScore();
+                UpdateCurrentCard();
+                PlayAgain();
+            }
+        }
 
-            Deck Deck= new Deck();
+        public void DrawNewCard(Deck deck) {
+            newCard = deck.DrawCard();
+        }
 
-            while (isPlaying)
-            {
-                currentCard= Deck.DrawCard();
-                
-                Console.WriteLine($"Your card is {currentCard}.");
-                Console.WriteLine("Do you think the next card will be higher or lower? (h/l)");
-                Guess=(Console.ReadLine());
-                newCard= Deck.DrawCard();
-                Console.WriteLine($"Your new card is {newCard}.");
+        public void DisplayCurrentCard() {
+            Console.WriteLine();
+            Console.WriteLine($"The card is: {currentCard}");
+        }
 
-                score=Deck.Score(Guess,currentCard,newCard);
-                
-                Console.WriteLine($"Your score: {score}");
+        public void GetGuess() {
+            bool validGuess = false;
 
-                if (score<=0)
-                {
-                    Console.WriteLine("Game Over");
-                    isPlaying=false;
-                }
-                else
-                {
-                    Console.WriteLine("Do you want to play again? (y/n)");
-                    playAgain=Console.ReadLine();
-                    if (playAgain=="n")
-                    {
-                        isPlaying=false;
-                    }
-                    Console.WriteLine("");
+            while (validGuess == false) {
+                Console.Write("Higher or lower? [h/l] ");
+                string input = Console.ReadLine();
+
+                if (input == "h" || input == "l") {
+                    guess = input;
+                    validGuess = true;
+                } else {
+                    Console.WriteLine("Invalid guess.");
                 }
             }
         }
 
-        //gameloop
+        public void CheckGuess() {
+            bool higher;
+            if (newCard > currentCard) {
+                higher = true;
+            } else {
+                higher = false;
+            }
 
-        //drawCard
+            bool guessToBool;
+            if (guess == "h"){
+                guessToBool = true;
+            } else {
+                guessToBool = false;
+            }
 
+            if (guessToBool == higher) {
+                correct = true;
+            } else {
+                correct = false;
+            }
+        }
+
+        public void UpdateScore() {
+            if (correct) {
+                score += 100;
+            } else {
+                score -= 75;
+            }
+        }
+
+        public void DisplayNextCard() {
+            Console.WriteLine($"Next card was: {newCard}");
+        }
+
+        public void DisplayScore() {
+            Console.WriteLine($"Your score is: {score}");
+        }
+
+        public void UpdateCurrentCard() {
+            currentCard = newCard;
+        }
+
+        public void PlayAgain() {
+            if (score <= 0) {
+                Console.WriteLine("You lose.");
+                isPlaying = false;
+                return;
+            }
+
+            Console.Write("Play again? [y/n] ");
+            playAgain = Console.ReadLine();
+
+            if (playAgain == "n") {
+                isPlaying = false;
+            } else {
+                return;
+            }
+        }
     }
 }
