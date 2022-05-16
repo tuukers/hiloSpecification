@@ -18,4 +18,5 @@
   Ryan Madsen - mad19002@byui.edu<br>
   Ethan Graham - gra20072@byui.edu<br>
   Colby Hale - hal19029@byui.edu<br>
-  Diego Baeza - bae18003@byui.edu
+  Diego Baeza - bae18003@byui.edu<br>
+  Ryan Funk - fun20009@byui.edu
